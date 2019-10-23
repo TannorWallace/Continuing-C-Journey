@@ -17,27 +17,27 @@ namespace GradeBook
       grades.Add(grade);
     }
 
-    public void ShowStats()
+    public Stats GetStats()
     {
-      var result = 0.0;
-      var highGrade = double.MinValue;
-      var lowGrade = double.MinValue;
-      foreach (double number in grades)
+      var result = new Stats();
+      result.Average = 0.0;
+      result.High = double.MinValue;
+      result.Low = double.MaxValue;
+
+      foreach (var grade in grades)
       {
 
-        lowGrade = Math.Min(number, lowGrade);
-        highGrade = Math.Max(number, highGrade);
-        result += number;
+        result.Low = Math.Min(grade, result.Low);
+        result.High = Math.Max(grade, result.High);
+        result.Average += grade;
       }
       #region What is an AVG
 
       //ok remeber that an average is the total of the amount of scores divided by the amout of scores in the equasion
       #endregion
 
-      result = result / grades.Count;
-      System.Console.WriteLine($"The lowest grade is {lowGrade}");
-      System.Console.WriteLine($"The highest grade is {highGrade}");
-      System.Console.WriteLine($"The average grade is {result:N1}");
+      result.Average /= grades.Count;
+      return result;
     }
 
     private List<double> grades;

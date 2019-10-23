@@ -33,8 +33,11 @@ namespace GradeBook.Tests
       book.AddGrade(67.6);
 
       //act
-      book.ShowStats();
+      var result = book.GetStats();
       //assert
+      Assert.Equal(85.8, result.Average, 1);
+      Assert.Equal(98.8, result.High, 1);
+      Assert.Equal(67.6, result.Low, 1);
 
     }
     #region NOTES
