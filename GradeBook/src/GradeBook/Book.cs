@@ -22,6 +22,7 @@ namespace GradeBook
       var result = new Stats();
       result.Average = 0.0;
       result.High = double.MinValue;
+      //gotta watch those min/max names that got me for a while 
       result.Low = double.MaxValue;
 
       foreach (var grade in grades)
