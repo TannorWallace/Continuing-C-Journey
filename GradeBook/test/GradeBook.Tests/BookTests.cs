@@ -23,7 +23,7 @@ namespace GradeBook.Tests
     */
     #endregion
     [Fact]
-    public void Test1()
+    public void BookCalcsAvgGrade()
     {
       //arrange
 
