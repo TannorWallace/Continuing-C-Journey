@@ -21,17 +21,78 @@ namespace GradeBook.Tests
         USE* dotnet test to run unit test
     }
     */
-    #endregion
-    #region NOTES
+
+
     /*Unit test are usually broken up in to three parts:
     1. Arrange- Where the data being testing is arranged
     2. The ACT section where the computation is carried out. this is the section that produces a result.
     3.Last is the ASSERT section where a theory or a expected result would be ASSERTED
 
 testing
+
+Reference types are things like integers and strings.
+
+or an example of a reference type is 
+
+***   public class Person
+          {
+
+          }
+****
+
+value types are variables that hold a value like 
+
+var x = 12;
+
+DAY TO DAY CODING 
+when building classes that is when one will be usually be making reference types.
+
+You cannot change the value of a string only pass on a copy of it that changes. using a ToUpper method does not CHANGE the value of the string only makes a copy of it and passes the copy along.
+-------------------------------------------------------------
+REFERENCE TYPE =
+var b = new Book("Grades");
+
+VALUE TYPE = 
+var x = 3;
      */
 
     #endregion
+
+    [Fact]
+    public void Test1()
+    {
+      var x = GetInt();
+      SetInt(ref x);
+      Assert.Equal(42, x);
+    }
+
+    private void SetInt(ref int x)
+    {
+      x = 42;
+    }
+
+    private int GetInt()
+    {
+      return 3;
+    }
+
+    [Fact]
+    public void CSharpCanPassByRef()
+    {
+      //arrange
+      var book1 = GetBook("Book 1");
+      GetBookSetName(out book1, "Lots of Money sounds good");
+      //act
+      //assert
+      Assert.Equal("Lots of Money sounds good", book1.Name);
+    }
+    private void GetBookSetName(out Book book, string name)
+    {
+      book = new Book(name);
+    }
+
+
+
 
     [Fact]
     public void CansetNameFromREF()
@@ -49,6 +110,21 @@ testing
     private void SetName(Book book, string name)
     {
       book.Name = name;
+    }
+
+    [Fact]
+    public void StringsBehaveLikeValueTypes()
+    {
+      string name = "Bridger";
+      var upper = MakeUpperCase(name);
+
+      Assert.Equal("Bridger", name);
+      Assert.Equal("BRIDGER", upper);
+    }
+
+    private string MakeUpperCase(string parameter)
+    {
+      return parameter.ToUpper();
     }
 
     [Fact]
