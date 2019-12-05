@@ -1,76 +1,34 @@
 using System;
 using Xunit;
 
-
-
 namespace GradeBook.Tests
 {
+
   //DELAGATES
   public delegate string WriteLogDelegate(string logMessage);
   public class TypeTests
   {
-    #region NOTES
-    /*fact is an attribute in C# fact attaches to Test1. 
-    The unit test will look for methods that have the FACT attribute attached to them.
 
-    when wanting to test a method "decorate" them with the [fact] attribute
-    example.
+    int count = 0;
 
-    [fact]
-    getNotableAstartes()
-    {
-        unit test will check the method run via the [fact] attribute
-        USE* dotnet test to run unit test
-    }
-    */
-
-
-    /*Unit test are usually broken up in to three parts:
-    1. Arrange- Where the data being testing is arranged
-    2. The ACT section where the computation is carried out. this is the section that produces a result.
-    3.Last is the ASSERT section where a theory or a expected result would be ASSERTED
-
-testing
-
-Reference types are things like integers and strings.
-
-or an example of a reference type is 
-
-***   public class Person
-          {
-
-          }
-****
-
-value types are variables that hold a value like 
-
-var x = 12;
-
-DAY TO DAY CODING 
-when building classes that is when one will be usually be making reference types.
-
-You cannot change the value of a string only pass on a copy of it that changes. using a ToUpper method does not CHANGE the value of the string only makes a copy of it and passes the copy along.
--------------------------------------------------------------
-REFERENCE TYPE =
-var b = new Book("Grades");
-
-VALUE TYPE = 
-var x = 3;
-     */
-
-    #endregion
     [Fact]
     public void WriteLogDelegateCanPointToMethod()
     {
-      WriteLogDelegate log;
-      log = ReturnMessage;
-
+      WriteLogDelegate log = ReturnMessage;
+      log += ReturnMessage;
+      log += IncrementCount;
 
       var result = log("Hi!");
-      Assert.Equal("Hi!", result);
+      Assert.Equal(3, count);
+    }
+    string IncrementCount(string message)
+    {
+      count++;
+      return message;
     }
     string ReturnMessage(string message)
     {
+      count++;
       return message;
     }
 
@@ -176,4 +134,53 @@ var x = 3;
     }
   }
 }
+#region NOTES
+/*fact is an attribute in C# fact attaches to Test1. 
+The unit test will look for methods that have the FACT attribute attached to them.
 
+when wanting to test a method "decorate" them with the [fact] attribute
+example.
+
+[fact]
+getNotableAstartes()
+{
+    unit test will check the method run via the [fact] attribute
+    USE* dotnet test to run unit test
+}
+*/
+
+
+/*Unit test are usually broken up in to three parts:
+1. Arrange- Where the data being testing is arranged
+2. The ACT section where the computation is carried out. this is the section that produces a result.
+3.Last is the ASSERT section where a theory or a expected result would be ASSERTED
+
+testing
+
+Reference types are things like integers and strings.
+
+or an example of a reference type is 
+
+***   public class Person
+      {
+
+      }
+****
+
+value types are variables that hold a value like 
+
+var x = 12;
+
+DAY TO DAY CODING 
+when building classes that is when one will be usually be making reference types.
+
+You cannot change the value of a string only pass on a copy of it that changes. using a ToUpper method does not CHANGE the value of the string only makes a copy of it and passes the copy along.
+-------------------------------------------------------------
+REFERENCE TYPE =
+var b = new Book("Grades");
+
+VALUE TYPE = 
+var x = 3;
+ */
+
+#endregion

@@ -8,6 +8,10 @@ namespace GradeBook
     static void Main(string[] args)
     {
       var book = new Book("Grade Book");
+      book.GradeAdded += OnGradeAdded;
+      book.GradeAdded += OnGradeAdded;
+      book.GradeAdded -= OnGradeAdded;
+      book.GradeAdded += OnGradeAdded;
 
 
       // var done = false;
@@ -56,22 +60,12 @@ namespace GradeBook
       System.Console.WriteLine($"The average grade is {stats.Average:N1}");
       Console.WriteLine($"the Letter Grade is {stats.Letter}");
 
-      #region dont need
-      // var numbers = new[] { 98.9, 87.2, 77.7, 88.8, 99.9 };
-      #endregion
 
-      #region helloworld
-      //   Console.Write(x + y / z);
-      //   if (args.Length > 0)
-      //   {
-      //     Console.WriteLine($"Hello, {args[0]}!");
-
-      //   }
-      //   else
-      //   {
-      //     Console.WriteLine("Hi, fuck face!");
-      //   }
-      #endregion
     }
+    static void OnGradeAdded(object sender, EventArgs e)
+    {
+      System.Console.WriteLine("A grade was added");
+    }
+
   }
 }

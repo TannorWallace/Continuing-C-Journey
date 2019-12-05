@@ -25,6 +25,10 @@ The only things that can be "Thrown" are exception objects!
   */
   #endregion
 
+  public delegate void GradeAddeddelegate(object sender, EventArgs args);
+
+
+
   public class Book
   {
     public Book(string name)
@@ -79,16 +83,18 @@ The only things that can be "Thrown" are exception objects!
       if (grade <= 100 && grade >= 0)
       {
         grades.Add(grade);
+        if (GradeAdded != null)
+        {
+          GradeAdded(this, new EventArgs());
+        }
+
       }
       else
       {
         throw new ArgumentException($"Invaild {nameof(grade)}");
-
-        //Console.WriteLine("Invalid Value");
       }
-
     }
-
+    public event GradeAddeddelegate GradeAdded;
     public Stats GetStats()
     {
       var result = new Stats();
