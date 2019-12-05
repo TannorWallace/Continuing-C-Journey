@@ -5,6 +5,8 @@ using Xunit;
 
 namespace GradeBook.Tests
 {
+  //DELAGATES
+  public delegate string WriteLogDelegate(string logMessage);
   public class TypeTests
   {
     #region NOTES
@@ -57,6 +59,21 @@ var x = 3;
      */
 
     #endregion
+    [Fact]
+    public void WriteLogDelegateCanPointToMethod()
+    {
+      WriteLogDelegate log;
+      log = ReturnMessage;
+
+
+      var result = log("Hi!");
+      Assert.Equal("Hi!", result);
+    }
+    string ReturnMessage(string message)
+    {
+      return message;
+    }
+
 
     [Fact]
     public void Test1()
@@ -91,9 +108,6 @@ var x = 3;
       book = new Book(name);
     }
 
-
-
-
     [Fact]
     public void CansetNameFromREF()
     {
@@ -103,8 +117,6 @@ var x = 3;
       //act
       //assert
       Assert.Equal("Big Book Of Mysteries", book1.Name);
-
-
     }
 
     private void SetName(Book book, string name)

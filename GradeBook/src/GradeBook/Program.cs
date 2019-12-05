@@ -20,8 +20,27 @@ namespace GradeBook
         {
           break;
         }
-        var grade = double.Parse(input);
-        book.AddGrade(grade);
+
+
+        try
+        {
+          var grade = double.Parse(input);
+          book.AddGrade(grade);
+        }
+        catch (ArgumentException ex)
+        {
+          System.Console.WriteLine(ex.Message);
+          //throw;
+        }
+        catch (FormatException ex)
+        {
+          System.Console.WriteLine(ex.Message);
+        }
+        //this is if you want a block of code to ALWAYS execute
+        finally
+        {
+          System.Console.WriteLine("I can do this! (determined!)");
+        }
       }
       // book.AddGrade(96.7);
       // book.AddGrade(74.7);
@@ -30,6 +49,8 @@ namespace GradeBook
 
       var stats = book.GetStats();
 
+      System.Console.WriteLine(Book.CATEGORY);
+      System.Console.WriteLine($"For the book named {book.Name}");
       System.Console.WriteLine($"The lowest grade is {stats.Low}");
       System.Console.WriteLine($"The highest grade is {stats.High}");
       System.Console.WriteLine($"The average grade is {stats.Average:N1}");

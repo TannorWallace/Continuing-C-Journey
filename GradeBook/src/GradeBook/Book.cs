@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace GradeBook
 {
-  #region NOTES
+  #region  NOTES
   /*
   when using an if statement make sure the logic is correct to evalute the whole statement in the case of && and || if the left hand side of the if statement evalutates to true the right hand side wont be evalutated at all. 
 
@@ -19,8 +19,12 @@ namespace GradeBook
 *REMEMBER*
   -do while loops always execute atleast once.
   -STRUCT always refers to a value type.
+
+*REMEMBER*
+The only things that can be "Thrown" are exception objects!
   */
   #endregion
+
   public class Book
   {
     public Book(string name)
@@ -28,8 +32,24 @@ namespace GradeBook
       grades = new List<double>();
       Name = name;
     }
+    #region Method Overloading
+    /*
+    moving in to method overriding 
+    previous method name 
+    (public void AddLetterGrade(char letter))
 
-    public void AddLetterGrade(char letter)
+    the C# compiler looks at the method signatures rather than the return type
+
+    the methods can share names but not signatures
+    below there are two AddGrade methods. 
+    1. returns a char letter
+    2. returns a double.
+       these wont conflict unless you add a third method that returns the same signature type
+       i.e. 
+       AddGrade(char letter) for a second time would cause errors.
+    */
+    #endregion
+    public void AddGrade(char letter)
     {
       switch (letter)
       {
@@ -62,8 +82,11 @@ namespace GradeBook
       }
       else
       {
-        Console.WriteLine("Invalid Value");
+        throw new ArgumentException($"Invaild {nameof(grade)}");
+
+        //Console.WriteLine("Invalid Value");
       }
+
     }
 
     public Stats GetStats()
@@ -113,7 +136,22 @@ namespace GradeBook
     }
 
     private List<double> grades;
-    public string Name;
+
+    #region 
+    /*
+    *Properties*
+
+    */
+    #endregion
+    public string Name
+    {
+      get;
+
+      //adding private to the set property makes it so the book name cannot be changed
+      set;
+
+    }
+    public const string CATEGORY = "Coding";
 
   }
 }
