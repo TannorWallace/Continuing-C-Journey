@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-
 namespace GradeBook
 {
   class Program
@@ -8,14 +7,8 @@ namespace GradeBook
     static void Main(string[] args)
     {
       var book = new Book("Grade Book");
-      book.GradeAdded += OnGradeAdded;
-      book.GradeAdded += OnGradeAdded;
-      book.GradeAdded -= OnGradeAdded;
-      book.GradeAdded += OnGradeAdded;
 
-
-      // var done = false;
-
+      book.GradeAdded += OnGradeAdded;
       while (true)
       {
         Console.WriteLine("Please enter a grade or hit 'q' to exit...");
@@ -24,8 +17,6 @@ namespace GradeBook
         {
           break;
         }
-
-
         try
         {
           var grade = double.Parse(input);
@@ -49,8 +40,6 @@ namespace GradeBook
       // book.AddGrade(96.7);
       // book.AddGrade(74.7);
       // book.AddGrade(89.2);
-
-
       var stats = book.GetStats();
 
       System.Console.WriteLine(Book.CATEGORY);
@@ -59,7 +48,6 @@ namespace GradeBook
       System.Console.WriteLine($"The highest grade is {stats.High}");
       System.Console.WriteLine($"The average grade is {stats.Average:N1}");
       Console.WriteLine($"the Letter Grade is {stats.Letter}");
-
 
     }
     static void OnGradeAdded(object sender, EventArgs e)

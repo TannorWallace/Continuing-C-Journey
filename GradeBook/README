@@ -1,0 +1,13 @@
+OOP Module notes
+
+1- PILLARS OF Object Oriented Programming
+  * ENCAPSULATION *THE MOST IMPORTANT*- Allows us to hide details of our code.
+  Methods like Public and Private allow for implicit controll over who can see the code and what parts of the programm can use the code across similar classes.
+  *INHERITANCE- Gives us the ability to re-use code.
+  *POLYMORPHISM- Allows for us to have objects of the same type but to have different behaviors.
+
+  DRY (princical)- DONT.REPEAT.YOURSELF!!!
+
+  ********************************************************
+  **IN DOTNET EVERY CLASS HAS A BASE CLASS IT DOESNT MATTER **HOW YOU IMPLY THE CLASS IT ALWAYS HAS A BASE CLASS****
+  *********************************************************

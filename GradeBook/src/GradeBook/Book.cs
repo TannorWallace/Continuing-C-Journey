@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-
-
 namespace GradeBook
 {
   #region  NOTES
@@ -24,14 +22,22 @@ namespace GradeBook
 The only things that can be "Thrown" are exception objects!
   */
   #endregion
-
   public delegate void GradeAddeddelegate(object sender, EventArgs args);
-
-
-
-  public class Book
+  public class NamedOject
   {
-    public Book(string name)
+    public NamedOject(string name)
+    {
+      Name = name;
+    }
+    public string Name
+    {
+      get;
+      set;
+    }
+  }
+  public class Book : NamedOject
+  {
+    public Book(string name) : base(name)
     {
       grades = new List<double>();
       Name = name;
@@ -79,7 +85,6 @@ The only things that can be "Thrown" are exception objects!
     }
     public void AddGrade(double grade)
     {
-
       if (grade <= 100 && grade >= 0)
       {
         grades.Add(grade);
@@ -87,7 +92,6 @@ The only things that can be "Thrown" are exception objects!
         {
           GradeAdded(this, new EventArgs());
         }
-
       }
       else
       {
@@ -104,18 +108,13 @@ The only things that can be "Thrown" are exception objects!
       result.Low = double.MaxValue;
       for (var index = 0; index < grades.Count; index++)
       {
-
         result.Low = Math.Min(grades[index], result.Low);
         result.High = Math.Max(grades[index], result.High);
         result.Average += grades[index];
-
       }
-
       #region What is an AVG
-
       //ok remeber that an average is the total of the amount of scores divided by the amout of scores in the equasion
       #endregion
-
       result.Average /= grades.Count;
       switch (result.Average)
       {
@@ -135,12 +134,8 @@ The only things that can be "Thrown" are exception objects!
           result.Letter = 'F';
           break;
       }
-
-
-
       return result;
     }
-
     private List<double> grades;
 
     #region 
@@ -149,14 +144,7 @@ The only things that can be "Thrown" are exception objects!
 
     */
     #endregion
-    public string Name
-    {
-      get;
 
-      //adding private to the set property makes it so the book name cannot be changed
-      set;
-
-    }
     public const string CATEGORY = "Coding";
 
   }
