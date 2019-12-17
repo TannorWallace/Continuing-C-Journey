@@ -1,27 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 namespace GradeBook
 {
-  #region  NOTES
-  /*
-  when using an if statement make sure the logic is correct to evalute the whole statement in the case of && and || if the left hand side of the if statement evalutates to true the right hand side wont be evalutated at all. 
 
-  if(grade <= 100 || grade >= 0)
-
-  this logic will not run the entire statement 
-
-  if(grade <= 100 && grade >= 0)
-
-  this logic will
---------------------------------------------------------------
-*REMEMBER*
-  -do while loops always execute atleast once.
-  -STRUCT always refers to a value type.
-
-*REMEMBER*
-The only things that can be "Thrown" are exception objects!
-  */
-  #endregion
   public delegate void GradeAddeddelegate(object sender, EventArgs args);
   public class NamedOject : object
   {
@@ -48,14 +30,46 @@ The only things that can be "Thrown" are exception objects!
     public Book(string name) : base(name)
     {
     }
-
-    public virtual event GradeAddeddelegate GradeAdded;
-
+    public abstract event GradeAddeddelegate GradeAdded;
     public abstract void AddGrade(double grade);
-
-    public virtual Stats GetStats()
+    public abstract Stats GetStats();
+  }
+  public class DiskBook : Book
+  {
+    public DiskBook(string name) : base(name)
     {
-      throw new NotImplementedException();
+    }
+
+    public override event GradeAddeddelegate GradeAdded;
+
+    public override void AddGrade(double grade)
+    {
+      using (var writer = File.AppendText($"{Name}.txt"))
+      {
+        writer.WriteLine(grade);
+        if (GradeAdded != null)
+        {
+          GradeAdded(this, new EventArgs());
+        }
+      }
+
+    }
+
+    public override Stats GetStats()
+    {
+      var result = new Stats();
+
+      using (var reader = File.OpenText($"{Name}.txt"))
+      {
+        var line = reader.ReadLine();
+        while (line != null)
+        {
+          var number = double.Parse(line);
+          result.Add(number);
+          line = reader.ReadLine();
+        }
+      }
+      return result;
     }
   }
   public class InMemoryBook : Book
@@ -65,23 +79,7 @@ The only things that can be "Thrown" are exception objects!
       grades = new List<double>();
       Name = name;
     }
-    #region Method Overloading
-    /*
-    moving in to method overriding 
-    previous method name 
-    (public void AddLetterGrade(char letter))
 
-    the C# compiler looks at the method signatures rather than the return type
-
-    the methods can share names but not signatures
-    below there are two AddGrade methods. 
-    1. returns a char letter
-    2. returns a double.
-       these wont conflict unless you add a third method that returns the same signature type
-       i.e. 
-       AddGrade(char letter) for a second time would cause errors.
-    */
-    #endregion
     public void AddGrade(char letter)
     {
       switch (letter)
@@ -125,38 +123,18 @@ The only things that can be "Thrown" are exception objects!
     public override Stats GetStats()
     {
       var result = new Stats();
-      result.Average = 0.0;
-      result.High = double.MinValue;
-      //gotta watch those min/max names that got me for a while 
-      result.Low = double.MaxValue;
+
       for (var index = 0; index < grades.Count; index++)
       {
-        result.Low = Math.Min(grades[index], result.Low);
-        result.High = Math.Max(grades[index], result.High);
-        result.Average += grades[index];
+        result.Add(grades[index]);
+
+
       }
       #region What is an AVG
       //ok remeber that an average is the total of the amount of scores divided by the amout of scores in the equasion
       #endregion
-      result.Average /= grades.Count;
-      switch (result.Average)
-      {
-        case var d when d >= 90.0:
-          result.Letter = 'A';
-          break;
-        case var d when d >= 80.0:
-          result.Letter = 'B';
-          break;
-        case var d when d >= 70.0:
-          result.Letter = 'C';
-          break;
-        case var d when d >= 60.0:
-          result.Letter = 'D';
-          break;
-        default:
-          result.Letter = 'F';
-          break;
-      }
+
+
       return result;
     }
     private List<double> grades;
@@ -172,3 +150,43 @@ The only things that can be "Thrown" are exception objects!
 
   }
 }
+
+#region  NOTES
+/*
+when using an if statement make sure the logic is correct to evalute the whole statement in the case of && and || if the left hand side of the if statement evalutates to true the right hand side wont be evalutated at all. 
+
+if(grade <= 100 || grade >= 0)
+
+this logic will not run the entire statement 
+
+if(grade <= 100 && grade >= 0)
+
+this logic will
+--------------------------------------------------------------
+*REMEMBER*
+-do while loops always execute atleast once.
+-STRUCT always refers to a value type.
+
+*REMEMBER*
+The only things that can be "Thrown" are exception objects!
+*/
+
+#region Method Overloading
+/*
+moving in to method overriding 
+previous method name 
+(public void AddLetterGrade(char letter))
+
+the C# compiler looks at the method signatures rather than the return type
+
+the methods can share names but not signatures
+below there are two AddGrade methods. 
+1. returns a char letter
+2. returns a double.
+   these wont conflict unless you add a third method that returns the same signature type
+   i.e. 
+   AddGrade(char letter) for a second time would cause errors.
+*/
+#endregion
+#endregion
+
