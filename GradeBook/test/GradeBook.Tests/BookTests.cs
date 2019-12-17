@@ -27,7 +27,7 @@ namespace GradeBook.Tests
     {
       //arrange
 
-      var book = new Book("");
+      var book = new InMemoryBook("");
       book.AddGrade(91.1);
       book.AddGrade(98.8);
       book.AddGrade(67.6);

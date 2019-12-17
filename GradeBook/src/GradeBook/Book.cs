@@ -23,7 +23,7 @@ The only things that can be "Thrown" are exception objects!
   */
   #endregion
   public delegate void GradeAddeddelegate(object sender, EventArgs args);
-  public class NamedOject
+  public class NamedOject : object
   {
     public NamedOject(string name)
     {
@@ -35,9 +35,32 @@ The only things that can be "Thrown" are exception objects!
       set;
     }
   }
-  public class Book : NamedOject
+  public interface IBook
+  {
+    void AddGrade(double grade);
+    Stats GetStats();
+    string Name { get; }
+    event GradeAddeddelegate GradeAdded;
+  }
+
+  public abstract class Book : NamedOject, IBook
   {
     public Book(string name) : base(name)
+    {
+    }
+
+    public virtual event GradeAddeddelegate GradeAdded;
+
+    public abstract void AddGrade(double grade);
+
+    public virtual Stats GetStats()
+    {
+      throw new NotImplementedException();
+    }
+  }
+  public class InMemoryBook : Book
+  {
+    public InMemoryBook(string name) : base(name)
     {
       grades = new List<double>();
       Name = name;
@@ -83,7 +106,7 @@ The only things that can be "Thrown" are exception objects!
           break;
       }
     }
-    public void AddGrade(double grade)
+    public override void AddGrade(double grade)
     {
       if (grade <= 100 && grade >= 0)
       {
@@ -98,8 +121,8 @@ The only things that can be "Thrown" are exception objects!
         throw new ArgumentException($"Invaild {nameof(grade)}");
       }
     }
-    public event GradeAddeddelegate GradeAdded;
-    public Stats GetStats()
+    public override event GradeAddeddelegate GradeAdded;
+    public override Stats GetStats()
     {
       var result = new Stats();
       result.Average = 0.0;
