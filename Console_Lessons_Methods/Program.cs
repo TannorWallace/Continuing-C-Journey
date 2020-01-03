@@ -2,11 +2,18 @@
 
 namespace Console_Lessons_Methods
 {
-    class Program
+  public class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+      Console.WriteLine("What is the name of your band?");
+      Band band = new Band();
+      band.Name = Console.ReadLine();
+      band.Announce();
+
     }
+
+
+  }
 }
+
