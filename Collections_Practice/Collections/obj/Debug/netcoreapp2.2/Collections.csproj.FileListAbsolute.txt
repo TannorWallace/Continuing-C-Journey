@@ -1,0 +1,11 @@
+C:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\Collections\bin\Debug\netcoreapp2.2\Collections.deps.json
+C:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\Collections\bin\Debug\netcoreapp2.2\Collections.runtimeconfig.json
+C:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\Collections\bin\Debug\netcoreapp2.2\Collections.runtimeconfig.dev.json
+C:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\Collections\bin\Debug\netcoreapp2.2\Collections.dll
+C:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\Collections\bin\Debug\netcoreapp2.2\Collections.pdb
+C:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\Collections\obj\Debug\netcoreapp2.2\Collections.csprojAssemblyReference.cache
+C:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\Collections\obj\Debug\netcoreapp2.2\Collections.csproj.CoreCompileInputs.cache
+C:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\Collections\obj\Debug\netcoreapp2.2\Collections.AssemblyInfoInputs.cache
+C:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\Collections\obj\Debug\netcoreapp2.2\Collections.AssemblyInfo.cs
+C:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\Collections\obj\Debug\netcoreapp2.2\Collections.dll
+C:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\Collections\obj\Debug\netcoreapp2.2\Collections.pdb
