@@ -26,5 +26,21 @@ namespace PopulusNations
       return RoundtoNearest(population, accuracy);
 
     }
+    public static int RoundtoNearest(int exact, int accuracy)
+    {
+      int adjusted = exact + accuracy / 2;
+      return adjusted - adjusted % accuracy;
+    }
+
+    public static long GetHighestPowerOfTen(int x)
+    {
+      long result = 1;
+      while (x > 0)
+      {
+        x /= 10;
+        result *= 10;
+      }
+      return result;
+    }
   }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\source\\On_My_Own\\Pluralsight\\C_Sharp_PS_Lessons\\Collections_Practice\\PopulusNations\\PopulusNations.csproj": {}
+    "C:\\source\\On_My_Own\\Pluralsight\\C_Sharp_PS_Lessons\\Collections_Practice\\Little_side_lessons\\Dictionaries\\Dictionaries.csproj": {}
   },
   "projects": {
-    "C:\\source\\On_My_Own\\Pluralsight\\C_Sharp_PS_Lessons\\Collections_Practice\\PopulusNations\\PopulusNations.csproj": {
+    "C:\\source\\On_My_Own\\Pluralsight\\C_Sharp_PS_Lessons\\Collections_Practice\\Little_side_lessons\\Dictionaries\\Dictionaries.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\source\\On_My_Own\\Pluralsight\\C_Sharp_PS_Lessons\\Collections_Practice\\PopulusNations\\PopulusNations.csproj",
-        "projectName": "PopulusNations",
-        "projectPath": "C:\\source\\On_My_Own\\Pluralsight\\C_Sharp_PS_Lessons\\Collections_Practice\\PopulusNations\\PopulusNations.csproj",
+        "projectUniqueName": "C:\\source\\On_My_Own\\Pluralsight\\C_Sharp_PS_Lessons\\Collections_Practice\\Little_side_lessons\\Dictionaries\\Dictionaries.csproj",
+        "projectName": "Dictionaries",
+        "projectPath": "C:\\source\\On_My_Own\\Pluralsight\\C_Sharp_PS_Lessons\\Collections_Practice\\Little_side_lessons\\Dictionaries\\Dictionaries.csproj",
         "packagesPath": "C:\\Users\\tanno\\.nuget\\packages\\",
-        "outputPath": "C:\\source\\On_My_Own\\Pluralsight\\C_Sharp_PS_Lessons\\Collections_Practice\\PopulusNations\\obj\\",
+        "outputPath": "C:\\source\\On_My_Own\\Pluralsight\\C_Sharp_PS_Lessons\\Collections_Practice\\Little_side_lessons\\Dictionaries\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -39,10 +39,6 @@
       "frameworks": {
         "netcoreapp2.2": {
           "dependencies": {
-            "CSV.NET": {
-              "target": "Package",
-              "version": "[0.3.0, )"
-            },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",

@@ -2,3 +2,10 @@ c:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\PopulusN
 c:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\PopulusNations\obj\Debug\netcoreapp2.2\PopulusNations.csproj.CoreCompileInputs.cache
 c:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\PopulusNations\obj\Debug\netcoreapp2.2\PopulusNations.AssemblyInfoInputs.cache
 c:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\PopulusNations\obj\Debug\netcoreapp2.2\PopulusNations.AssemblyInfo.cs
+C:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\PopulusNations\bin\Debug\netcoreapp2.2\PopulusNations.deps.json
+C:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\PopulusNations\bin\Debug\netcoreapp2.2\PopulusNations.runtimeconfig.json
+C:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\PopulusNations\bin\Debug\netcoreapp2.2\PopulusNations.runtimeconfig.dev.json
+C:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\PopulusNations\bin\Debug\netcoreapp2.2\PopulusNations.dll
+C:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\PopulusNations\bin\Debug\netcoreapp2.2\PopulusNations.pdb
+C:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\PopulusNations\obj\Debug\netcoreapp2.2\PopulusNations.dll
+C:\source\On_My_Own\Pluralsight\C_Sharp_PS_Lessons\Collections_Practice\PopulusNations\obj\Debug\netcoreapp2.2\PopulusNations.pdb

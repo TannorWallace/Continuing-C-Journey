@@ -1,0 +1,41 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.2",
+    "signature": "91bf6c6097df17b200fb8a2f0b13d7b49ec94af8"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.2": {
+      "PopulusNations/1.0.0": {
+        "dependencies": {
+          "CSV.NET": "0.3.0"
+        },
+        "runtime": {
+          "PopulusNations.dll": {}
+        }
+      },
+      "CSV.NET/0.3.0": {
+        "runtime": {
+          "lib/netstandard2.0/CSV.dll": {
+            "assemblyVersion": "0.3.0.0",
+            "fileVersion": "0.3.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PopulusNations/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CSV.NET/0.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WB4tWolZ+deeNN44Itul1GwzmpcMj3oXcBeqgPWp1frMtUvAkZ/H/k0OpYhGEY8JsVHR7H+aiEIdPrSJxwyKzA==",
+      "path": "csv.net/0.3.0",
+      "hashPath": "csv.net.0.3.0.nupkg.sha512"
+    }
+  }
+}

@@ -1,1 +1,12 @@
 LEARNING LEARNING LEARNING KEEP ON LEARNING
+
+
+When adding to a Dictionary you cannot use the same key twice. this is because KEYS are always UNIQUE! you cannot use a key more than once (with out handling the exception probably) or you will cause the program to crash with an UNHANDLED exception.
+
+You CAN however add the same item with the SAME KEY as manytimes are you want.
+
+with lists and arrays you can look up elements with the Array.Length and the List.Count Properties
+
+to look things up in a case of a dictionary use "TryGetValue()" 
+
+The property or method checks to see if the key value is present in the Dictionary.
