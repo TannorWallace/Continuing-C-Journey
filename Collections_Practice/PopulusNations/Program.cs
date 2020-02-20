@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Text;
-using System.IO;
-
+using System.Threading.Tasks;
 
 namespace PopulusNations
 {
@@ -16,19 +14,14 @@ namespace PopulusNations
       CsvReader reader = new CsvReader(filePath);
       Dictionary<string, Country> countries = reader.ReadAllCountries();
 
-      System.Console.WriteLine("Which country code do you want to look up?");
+      Console.WriteLine("Which country code do you want to look up? ");
       string userInput = Console.ReadLine();
 
       bool gotCountry = countries.TryGetValue(userInput, out Country country);
       if (!gotCountry)
-      {
-        System.Console.WriteLine($"Sorry, there is no country with code, {userInput}");
-      }
+        Console.WriteLine($"Sorry, there is no country with code, {userInput}");
       else
-      {
-        Console.WriteLine($"{country.Name} has population{PopulationFormatter.FormatPopulation(country.Population)}");
-      }
-
+        Console.WriteLine($"{country.Name} has population {PopulationFormatter.FormatPopulation(country.Population)}");
     }
   }
 }
